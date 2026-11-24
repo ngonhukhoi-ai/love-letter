@@ -760,17 +760,30 @@
     let v = 0;
     const t = setInterval(() => { v = Math.min(0.75, v + 0.03); song.volume = v; if (v >= 0.75) clearInterval(t); }, 120);
   }
+  let userPaused = false;   // true only if she taps the music button to stop it
   function playSong(){
+    if (!song.paused) return;
     song.play().then(() => {
       musicBtn.classList.remove('muted'); fadeIn();
       nowPlaying.classList.add('show'); setTimeout(() => nowPlaying.classList.remove('show'), 6000);
     }).catch(() => musicBtn.classList.add('muted'));
   }
   musicBtn.addEventListener('click', () => {
-    if (song.paused) playSong();
-    else { song.pause(); musicBtn.classList.add('muted'); }
+    if (song.paused) { userPaused = false; playSong(); }
+    else { userPaused = true; song.pause(); musicBtn.classList.add('muted'); }
   });
   musicBtn.classList.add('muted');
+
+  // Keep the music playing:
+  // 1) try to start straight away (works if the browser allows autoplay),
+  // 2) otherwise start on the very first tap / click / scroll / key anywhere,
+  // 3) resume whenever she comes back to the tab or the phone interrupts it.
+  playSong();
+  const kick = () => { if (!userPaused) playSong(); };
+  ['pointerdown','touchstart','click','keydown','wheel','scroll'].forEach(ev =>
+    window.addEventListener(ev, kick, { passive:true, capture:true }));
+  document.addEventListener('visibilitychange', () => { if (!document.hidden) kick(); });
+  song.addEventListener('pause', () => { if (!userPaused && !document.hidden) setTimeout(kick, 400); });
 
   /* ---------- Petals ---------- */
   const petalColors = ['#f1cdcc','#f6e7e1','#ffffff','#d993a6','#c9d6f0'];
