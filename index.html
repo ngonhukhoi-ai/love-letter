@@ -64,7 +64,22 @@
     filter:drop-shadow(0 10px 18px rgba(0,0,0,.45));
     transform:rotate(var(--r));
     animation:sway 7s ease-in-out infinite alternate; animation-delay:var(--d,0s);
+    opacity:0; transition:opacity 1.6s ease .6s;
   }
+  body.letter-open .bq{opacity:1}
+
+  /* ---------- Simple ornaments on the envelope page ---------- */
+  .corner{
+    position:fixed; z-index:1; pointer-events:none;
+    width:clamp(64px,9vw,110px); color:var(--gold);
+    transition:opacity 1s ease;
+  }
+  .corner.c-tl{top:18px; left:18px}
+  .corner.c-tr{top:18px; right:18px; transform:scaleX(-1)}
+  .corner.c-bl{bottom:18px; left:18px; transform:scaleY(-1)}
+  .corner.c-br{bottom:18px; right:18px; transform:scale(-1,-1)}
+  body.letter-open .corner{opacity:0}
+  .divider{width:180px; color:var(--gold); margin-top:-12px}
   @keyframes sway{
     from{transform:rotate(calc(var(--r) - 2deg))}
     to  {transform:rotate(calc(var(--r) + 2deg))}
@@ -398,6 +413,28 @@
     </g>
   </symbol>
 
+  <!-- thin gold corner flourish -->
+  <symbol id="corner" viewBox="0 0 120 120">
+    <g fill="none" stroke="currentColor" stroke-linecap="round">
+      <path d="M8,112 L8,34 Q8,8 34,8 L112,8" stroke-width="1.2"/>
+      <path d="M18,112 L18,42 Q18,18 42,18 L112,18" stroke-width=".7" opacity=".55"/>
+      <path d="M30,30 C36,22 46,22 50,30 C46,38 36,38 30,30Z" stroke-width=".9"/>
+      <path d="M30,30 C22,36 22,46 30,50 C38,46 38,36 30,30Z" stroke-width=".9"/>
+    </g>
+    <circle cx="30" cy="30" r="2.2" fill="currentColor"/>
+    <circle cx="112" cy="8" r="1.6" fill="currentColor"/><circle cx="8" cy="112" r="1.6" fill="currentColor"/>
+  </symbol>
+  <!-- small divider under the title -->
+  <symbol id="divider" viewBox="0 0 180 20">
+    <g fill="none" stroke="currentColor" stroke-linecap="round">
+      <path d="M4,10 L72,10" stroke-width=".8"/><path d="M108,10 L176,10" stroke-width=".8"/>
+      <path d="M90,10 C84,4 84,0 90,0 C96,0 96,4 90,10Z" stroke-width=".9"/>
+      <path d="M90,10 C84,16 84,20 90,20 C96,20 96,16 90,10Z" stroke-width=".9"/>
+      <path d="M90,10 C84,4 78,4 78,10 C78,16 84,16 90,10Z" stroke-width=".9"/>
+      <path d="M90,10 C96,4 102,4 102,10 C102,16 96,16 90,10Z" stroke-width=".9"/>
+    </g>
+  </symbol>
+
   <symbol id="garland" viewBox="0 0 220 80">
     <use href="#leaf" x="8"  y="36" width="44" height="18" transform="rotate(-15 30 45)"/>
     <use href="#leaf" x="168" y="36" width="44" height="18" transform="rotate(195 190 45)"/>
@@ -418,6 +455,10 @@
 <svg class="bq br" viewBox="0 0 220 300" aria-hidden="true"><use href="#bouquet"/></svg>
 <svg class="bq ml" viewBox="0 0 220 300" aria-hidden="true"><use href="#bouquet"/></svg>
 <svg class="bq mr" viewBox="0 0 220 300" aria-hidden="true"><use href="#bouquet"/></svg>
+<svg class="corner c-tl" viewBox="0 0 120 120" aria-hidden="true"><use href="#corner"/></svg>
+<svg class="corner c-tr" viewBox="0 0 120 120" aria-hidden="true"><use href="#corner"/></svg>
+<svg class="corner c-bl" viewBox="0 0 120 120" aria-hidden="true"><use href="#corner"/></svg>
+<svg class="corner c-br" viewBox="0 0 120 120" aria-hidden="true"><use href="#corner"/></svg>
 
 <!-- ===================== SONG ===================== -->
 <audio id="song" src="song.mp3" loop preload="auto"></audio>
@@ -432,6 +473,7 @@
 <!-- ===================== INTRO / ENVELOPE ===================== -->
 <section id="intro" class="stage">
   <h1 class="intro-title">Gửi tới em, <span class="her-name">you</span></h1>
+  <svg class="divider" viewBox="0 0 180 20" aria-hidden="true"><use href="#divider"/></svg>
   <button class="envelope" id="envelope" aria-label="Open the letter">
     <div class="env-paper">open me</div>
     <div class="env-pocket"></div>
@@ -553,6 +595,7 @@
     setTimeout(() => intro.classList.add('gone'), 1300);
     setTimeout(() => {
       intro.style.display = 'none';
+      document.body.classList.add('letter-open');
       letterStage.classList.add('show');
       window.scrollTo(0,0);
       const items = [...document.querySelectorAll('.letter .reveal')];
