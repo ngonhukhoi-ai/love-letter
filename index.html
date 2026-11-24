@@ -648,7 +648,7 @@
 
     <div class="reveal" id="questionBlock">
       <div class="rule"></div>
-      <div class="question">Will you be my girlfriend?</div>
+      <div class="question">May I be your boyfriend?</div>
       <div class="answers" id="answers">
         <button class="btn btn-yes" id="yesBtn">Yes</button>
         <button class="btn btn-no" id="noBtn">No</button>
@@ -677,7 +677,7 @@
   const CONFIG = {
     herName:  "Minh Trang",
     yourName: "nhukhoi",      // shown under "Always yours"
-    showDate: true
+    date:     "November 25, 2026"   // fixed date shown at the top of the letter
   };
   /* =============================================================== */
 
@@ -749,10 +749,7 @@
   document.querySelectorAll('.her-name').forEach(el => el.textContent = CONFIG.herName);
   document.querySelectorAll('.your-name').forEach(el => el.textContent = CONFIG.yourName);
   document.getElementById('seal').textContent = CONFIG.herName.trim().charAt(0).toUpperCase() || '&';
-  if (CONFIG.showDate) {
-    document.getElementById('date').textContent =
-      new Date().toLocaleDateString(undefined, { year:'numeric', month:'long', day:'numeric' });
-  }
+  document.getElementById('date').textContent = CONFIG.date;
 
   /* ---------- Music ---------- */
   const song = document.getElementById('song');
