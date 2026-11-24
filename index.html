@@ -283,7 +283,7 @@
   #yay.show .polaroid{transform:rotate(-2deg) scale(1)}
   #yay h2{
     font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:400;
-    font-size:clamp(40px,8vw,64px); color:var(--ivory); line-height:1;
+    font-size:clamp(32px,6.5vw,54px); color:var(--ivory); line-height:1.15; max-width:640px; text-wrap:balance;
   }
   #yay p{font-size:clamp(18px,3.6vw,21px); max-width:480px; color:#c9d2e8; font-style:italic}
 
@@ -413,6 +413,148 @@
     </g>
   </symbol>
 
+  <!-- ===== Peony (petal colour = CSS color on the <use>) ===== -->
+  <symbol id="peony" viewBox="-26 -26 52 52">
+    <g fill="currentColor" stroke="rgba(90,30,50,.2)" stroke-width=".7">
+      <ellipse cy="-14" rx="9" ry="11"/><ellipse cy="-14" rx="9" ry="11" transform="rotate(36)"/>
+      <ellipse cy="-14" rx="9" ry="11" transform="rotate(72)"/><ellipse cy="-14" rx="9" ry="11" transform="rotate(108)"/>
+      <ellipse cy="-14" rx="9" ry="11" transform="rotate(144)"/><ellipse cy="-14" rx="9" ry="11" transform="rotate(180)"/>
+      <ellipse cy="-14" rx="9" ry="11" transform="rotate(216)"/><ellipse cy="-14" rx="9" ry="11" transform="rotate(252)"/>
+      <ellipse cy="-14" rx="9" ry="11" transform="rotate(288)"/><ellipse cy="-14" rx="9" ry="11" transform="rotate(324)"/>
+    </g>
+    <circle r="15" fill="currentColor"/>
+    <circle r="15" fill="rgba(90,30,50,.06)"/>
+    <g fill="currentColor" stroke="rgba(90,30,50,.22)" stroke-width=".7">
+      <ellipse cy="-8" rx="7" ry="8.5" transform="rotate(22)"/><ellipse cy="-8" rx="7" ry="8.5" transform="rotate(67)"/>
+      <ellipse cy="-8" rx="7" ry="8.5" transform="rotate(112)"/><ellipse cy="-8" rx="7" ry="8.5" transform="rotate(157)"/>
+      <ellipse cy="-8" rx="7" ry="8.5" transform="rotate(202)"/><ellipse cy="-8" rx="7" ry="8.5" transform="rotate(247)"/>
+      <ellipse cy="-8" rx="7" ry="8.5" transform="rotate(292)"/><ellipse cy="-8" rx="7" ry="8.5" transform="rotate(337)"/>
+    </g>
+    <circle r="11" fill="#fff" opacity=".16"/>
+    <g fill="currentColor" stroke="rgba(90,30,50,.26)" stroke-width=".7">
+      <ellipse cy="-3.5" rx="4.5" ry="5"/><ellipse cy="-3.5" rx="4.5" ry="5" transform="rotate(72)"/>
+      <ellipse cy="-3.5" rx="4.5" ry="5" transform="rotate(144)"/><ellipse cy="-3.5" rx="4.5" ry="5" transform="rotate(216)"/>
+      <ellipse cy="-3.5" rx="4.5" ry="5" transform="rotate(288)"/>
+    </g>
+    <circle r="6.5" fill="#fff" opacity=".2"/>
+    <g fill="none" stroke="rgba(90,30,50,.32)" stroke-width=".9" stroke-linecap="round">
+      <path d="M-4,1 C-3,-4 3,-4 4,1"/><path d="M-6,5 C-2,8 3,7 6,4"/><path d="M-9,-6 C-5,-11 4,-12 8,-7"/>
+    </g>
+    <ellipse cx="-7" cy="-11" rx="6" ry="2.6" fill="#fff" opacity=".22" transform="rotate(-32 -7 -11)"/>
+  </symbol>
+  <symbol id="peonyBud" viewBox="-12 -12 24 24">
+    <path d="M-7,4 C-9,9 -2,11 0,9 C2,11 9,9 7,4" fill="#7f9c70"/>
+    <circle r="7.5" cy="-1" fill="currentColor" stroke="rgba(90,30,50,.25)" stroke-width=".7"/>
+    <path d="M-4,-2 C-2,-6 2,-6 4,-2" fill="none" stroke="rgba(90,30,50,.3)" stroke-width=".8"/>
+    <path d="M-7,3 C-6,-3 -3,-1 -2,6 M7,3 C6,-3 3,-1 2,6" fill="#8aa37c"/>
+  </symbol>
+
+  <!-- ===== Lilies ===== -->
+  <!-- ===== Double lilies: three layers of petals ===== -->
+  <path id="lp" d="M0,0 C11,-6 11,-18 1,-25 C-1,-23 -2,-23 -3,-22 C-11,-15 -10,-6 0,0Z"/>
+  <symbol id="lilyWhite" viewBox="-26 -26 52 52">
+    <g fill="#f3eddf" stroke="rgba(150,130,90,.35)" stroke-width=".7">
+      <use href="#lp"/><use href="#lp" transform="rotate(60)"/><use href="#lp" transform="rotate(120)"/>
+      <use href="#lp" transform="rotate(180)"/><use href="#lp" transform="rotate(240)"/><use href="#lp" transform="rotate(300)"/>
+    </g>
+    <g stroke="rgba(170,170,90,.4)" stroke-width="1.2" stroke-linecap="round">
+      <path d="M0,-12 L0,-21"/><path d="M0,-12 L0,-21" transform="rotate(60)"/><path d="M0,-12 L0,-21" transform="rotate(120)"/>
+      <path d="M0,-12 L0,-21" transform="rotate(180)"/><path d="M0,-12 L0,-21" transform="rotate(240)"/><path d="M0,-12 L0,-21" transform="rotate(300)"/>
+    </g>
+    <g fill="#f9f5ec" stroke="rgba(150,130,90,.35)" stroke-width=".8">
+      <use href="#lp" transform="rotate(30) scale(.78)"/><use href="#lp" transform="rotate(90) scale(.78)"/><use href="#lp" transform="rotate(150) scale(.78)"/>
+      <use href="#lp" transform="rotate(210) scale(.78)"/><use href="#lp" transform="rotate(270) scale(.78)"/><use href="#lp" transform="rotate(330) scale(.78)"/>
+    </g>
+    <g fill="#fffdf8" stroke="rgba(150,130,90,.35)" stroke-width="1">
+      <use href="#lp" transform="rotate(10) scale(.52)"/><use href="#lp" transform="rotate(70) scale(.52)"/><use href="#lp" transform="rotate(130) scale(.52)"/>
+      <use href="#lp" transform="rotate(190) scale(.52)"/><use href="#lp" transform="rotate(250) scale(.52)"/><use href="#lp" transform="rotate(310) scale(.52)"/>
+    </g>
+    <circle r="2.6" fill="#dfe6a8"/>
+  </symbol>
+  <symbol id="lilyPink" viewBox="-26 -26 52 52">
+    <g fill="#f0a3b8" stroke="rgba(160,50,90,.3)" stroke-width=".7">
+      <use href="#lp"/><use href="#lp" transform="rotate(60)"/><use href="#lp" transform="rotate(120)"/>
+      <use href="#lp" transform="rotate(180)"/><use href="#lp" transform="rotate(240)"/><use href="#lp" transform="rotate(300)"/>
+    </g>
+    <g stroke="rgba(200,60,105,.7)" stroke-width="1.8" stroke-linecap="round">
+      <path d="M0,-12 L0,-21"/><path d="M0,-12 L0,-21" transform="rotate(60)"/><path d="M0,-12 L0,-21" transform="rotate(120)"/>
+      <path d="M0,-12 L0,-21" transform="rotate(180)"/><path d="M0,-12 L0,-21" transform="rotate(240)"/><path d="M0,-12 L0,-21" transform="rotate(300)"/>
+    </g>
+    <g fill="#b23a63">
+      <circle cx="2.6" cy="-17" r=".8"/><circle cx="-2.6" cy="-19" r=".7"/>
+      <circle cx="2.6" cy="-17" r=".8" transform="rotate(120)"/><circle cx="-2.6" cy="-19" r=".7" transform="rotate(120)"/>
+      <circle cx="2.6" cy="-17" r=".8" transform="rotate(240)"/><circle cx="-2.6" cy="-19" r=".7" transform="rotate(240)"/>
+    </g>
+    <g fill="#f5b8c8" stroke="rgba(160,50,90,.3)" stroke-width=".8">
+      <use href="#lp" transform="rotate(30) scale(.78)"/><use href="#lp" transform="rotate(90) scale(.78)"/><use href="#lp" transform="rotate(150) scale(.78)"/>
+      <use href="#lp" transform="rotate(210) scale(.78)"/><use href="#lp" transform="rotate(270) scale(.78)"/><use href="#lp" transform="rotate(330) scale(.78)"/>
+    </g>
+    <g fill="#fad3dd" stroke="rgba(160,50,90,.3)" stroke-width="1">
+      <use href="#lp" transform="rotate(10) scale(.52)"/><use href="#lp" transform="rotate(70) scale(.52)"/><use href="#lp" transform="rotate(130) scale(.52)"/>
+      <use href="#lp" transform="rotate(190) scale(.52)"/><use href="#lp" transform="rotate(250) scale(.52)"/><use href="#lp" transform="rotate(310) scale(.52)"/>
+    </g>
+    <circle r="2.6" fill="#dfe6a8"/>
+  </symbol>
+  <symbol id="lilyWhiteSingle" viewBox="-26 -26 52 52">
+    <g fill="#fbf8f1" stroke="rgba(150,130,90,.35)" stroke-width=".7">
+      <path d="M0,0 C11,-6 11,-18 1,-25 C-1,-23 -2,-23 -3,-22 C-11,-15 -10,-6 0,0Z" transform="rotate(30)"/>
+      <path d="M0,0 C11,-6 11,-18 1,-25 C-1,-23 -2,-23 -3,-22 C-11,-15 -10,-6 0,0Z" transform="rotate(150)"/>
+      <path d="M0,0 C11,-6 11,-18 1,-25 C-1,-23 -2,-23 -3,-22 C-11,-15 -10,-6 0,0Z" transform="rotate(270)"/>
+      <path d="M0,0 C11,-6 11,-18 1,-25 C-1,-23 -2,-23 -3,-22 C-11,-15 -10,-6 0,0Z"/>
+      <path d="M0,0 C11,-6 11,-18 1,-25 C-1,-23 -2,-23 -3,-22 C-11,-15 -10,-6 0,0Z" transform="rotate(120)"/>
+      <path d="M0,0 C11,-6 11,-18 1,-25 C-1,-23 -2,-23 -3,-22 C-11,-15 -10,-6 0,0Z" transform="rotate(240)"/>
+    </g>
+    <g stroke="rgba(170,170,90,.45)" stroke-width="1.3" stroke-linecap="round">
+      <path d="M0,-2 L0,-13"/><path d="M0,-2 L0,-13" transform="rotate(60)"/><path d="M0,-2 L0,-13" transform="rotate(120)"/>
+      <path d="M0,-2 L0,-13" transform="rotate(180)"/><path d="M0,-2 L0,-13" transform="rotate(240)"/><path d="M0,-2 L0,-13" transform="rotate(300)"/>
+    </g>
+    <g stroke="#c9b770" stroke-width=".6">
+      <path d="M0,0 L0,-11" transform="rotate(30)"/><path d="M0,0 L0,-11" transform="rotate(90)"/><path d="M0,0 L0,-11" transform="rotate(150)"/>
+      <path d="M0,0 L0,-11" transform="rotate(210)"/><path d="M0,0 L0,-11" transform="rotate(270)"/><path d="M0,0 L0,-11" transform="rotate(330)"/>
+    </g>
+    <g fill="#b0703a">
+      <ellipse cy="-11" rx="1.1" ry="2" transform="rotate(30)"/><ellipse cy="-11" rx="1.1" ry="2" transform="rotate(90)"/>
+      <ellipse cy="-11" rx="1.1" ry="2" transform="rotate(150)"/><ellipse cy="-11" rx="1.1" ry="2" transform="rotate(210)"/>
+      <ellipse cy="-11" rx="1.1" ry="2" transform="rotate(270)"/><ellipse cy="-11" rx="1.1" ry="2" transform="rotate(330)"/>
+    </g>
+    <circle r="2.4" fill="#cfd98a"/>
+  </symbol>
+  <symbol id="lilyPinkSingle" viewBox="-26 -26 52 52">
+    <g fill="#f5b8c8" stroke="rgba(160,50,90,.3)" stroke-width=".7">
+      <path d="M0,0 C11,-6 11,-18 1,-25 C-1,-23 -2,-23 -3,-22 C-11,-15 -10,-6 0,0Z" transform="rotate(30)"/>
+      <path d="M0,0 C11,-6 11,-18 1,-25 C-1,-23 -2,-23 -3,-22 C-11,-15 -10,-6 0,0Z" transform="rotate(150)"/>
+      <path d="M0,0 C11,-6 11,-18 1,-25 C-1,-23 -2,-23 -3,-22 C-11,-15 -10,-6 0,0Z" transform="rotate(270)"/>
+      <path d="M0,0 C11,-6 11,-18 1,-25 C-1,-23 -2,-23 -3,-22 C-11,-15 -10,-6 0,0Z"/>
+      <path d="M0,0 C11,-6 11,-18 1,-25 C-1,-23 -2,-23 -3,-22 C-11,-15 -10,-6 0,0Z" transform="rotate(120)"/>
+      <path d="M0,0 C11,-6 11,-18 1,-25 C-1,-23 -2,-23 -3,-22 C-11,-15 -10,-6 0,0Z" transform="rotate(240)"/>
+    </g>
+    <g stroke="rgba(200,60,105,.75)" stroke-width="2" stroke-linecap="round">
+      <path d="M0,-2 L0,-14"/><path d="M0,-2 L0,-14" transform="rotate(60)"/><path d="M0,-2 L0,-14" transform="rotate(120)"/>
+      <path d="M0,-2 L0,-14" transform="rotate(180)"/><path d="M0,-2 L0,-14" transform="rotate(240)"/><path d="M0,-2 L0,-14" transform="rotate(300)"/>
+    </g>
+    <g fill="#b23a63">
+      <circle cx="2.5" cy="-8" r=".8"/><circle cx="-2.4" cy="-10" r=".7"/><circle cx="2" cy="-12" r=".6"/>
+      <circle cx="2.5" cy="-8" r=".8" transform="rotate(120)"/><circle cx="-2.4" cy="-10" r=".7" transform="rotate(120)"/>
+      <circle cx="2.5" cy="-8" r=".8" transform="rotate(240)"/><circle cx="-2.4" cy="-10" r=".7" transform="rotate(240)"/>
+      <circle cx="-2.5" cy="-8" r=".8" transform="rotate(60)"/><circle cx="-2.5" cy="-8" r=".8" transform="rotate(180)"/><circle cx="-2.5" cy="-8" r=".8" transform="rotate(300)"/>
+    </g>
+    <g stroke="#d9c98a" stroke-width=".6">
+      <path d="M0,0 L0,-11" transform="rotate(30)"/><path d="M0,0 L0,-11" transform="rotate(90)"/><path d="M0,0 L0,-11" transform="rotate(150)"/>
+      <path d="M0,0 L0,-11" transform="rotate(210)"/><path d="M0,0 L0,-11" transform="rotate(270)"/><path d="M0,0 L0,-11" transform="rotate(330)"/>
+    </g>
+    <g fill="#8a3b2a">
+      <ellipse cy="-11" rx="1.1" ry="2" transform="rotate(30)"/><ellipse cy="-11" rx="1.1" ry="2" transform="rotate(90)"/>
+      <ellipse cy="-11" rx="1.1" ry="2" transform="rotate(150)"/><ellipse cy="-11" rx="1.1" ry="2" transform="rotate(210)"/>
+      <ellipse cy="-11" rx="1.1" ry="2" transform="rotate(270)"/><ellipse cy="-11" rx="1.1" ry="2" transform="rotate(330)"/>
+    </g>
+    <circle r="2.4" fill="#cfd98a"/>
+  </symbol>
+  <symbol id="lilyBud" viewBox="-20 -20 40 40">
+    <path d="M0,-19 C6,-10 5,6 0,15 C-5,6 -6,-10 0,-19Z" fill="currentColor" stroke="rgba(120,90,80,.3)" stroke-width=".7"/>
+    <path d="M0,-17 L0,13" stroke="rgba(120,90,80,.25)" stroke-width=".8"/>
+    <path d="M-2,13 C-1,17 1,17 2,13" fill="#8aa37c"/>
+  </symbol>
+
   <!-- thin gold corner flourish -->
   <symbol id="corner" viewBox="0 0 120 120">
     <g fill="none" stroke="currentColor" stroke-linecap="round">
@@ -440,21 +582,22 @@
     <use href="#leaf" x="168" y="36" width="44" height="18" transform="rotate(195 190 45)"/>
     <use href="#leaf" x="60" y="52" width="36" height="14" transform="rotate(20 78 59)"/>
     <use href="#leaf" x="124" y="52" width="36" height="14" transform="rotate(160 142 59)"/>
-    <use href="#blossom"   x="42"  y="24" width="26" height="26"/>
-    <use href="#blossom"   x="152" y="24" width="26" height="26"/>
-    <use href="#roseIvory" x="66"  y="16" width="38" height="38"/>
-    <use href="#roseBlush" x="116" y="16" width="38" height="38"/>
-    <use href="#roseDeep"  x="86"  y="6"  width="48" height="48"/>
+    <use href="#lilyWhite" x="32"  y="18" width="40" height="40" transform="rotate(-15 52 38)"/>
+    <use href="#lilyPink"  x="148" y="18" width="40" height="40" transform="rotate(15 168 38)"/>
+    <use href="#peony" x="64"  y="12" width="44" height="44" style="color:#f9dde1"/>
+    <use href="#peony" x="112" y="12" width="44" height="44" style="color:#f5ecdb"/>
+    <use href="#peony" x="83"  y="2"  width="54" height="54" style="color:#ee9fb0"/>
   </symbol>
 </svg>
 
 <!-- ===================== BOUQUETS ===================== -->
-<svg class="bq tl" viewBox="0 0 220 300" aria-hidden="true"><use href="#bouquet"/></svg>
-<svg class="bq tr" viewBox="0 0 220 300" aria-hidden="true"><use href="#bouquet"/></svg>
-<svg class="bq bl" viewBox="0 0 220 300" aria-hidden="true"><use href="#bouquet"/></svg>
-<svg class="bq br" viewBox="0 0 220 300" aria-hidden="true"><use href="#bouquet"/></svg>
-<svg class="bq ml" viewBox="0 0 220 300" aria-hidden="true"><use href="#bouquet"/></svg>
-<svg class="bq mr" viewBox="0 0 220 300" aria-hidden="true"><use href="#bouquet"/></svg>
+<!-- each bouquet is drawn by the script (see BOUQUETS near the bottom) -->
+<svg class="bq tl" data-b="0" viewBox="0 0 220 300" aria-hidden="true"></svg>
+<svg class="bq tr" data-b="1" viewBox="0 0 220 300" aria-hidden="true"></svg>
+<svg class="bq bl" data-b="2" viewBox="0 0 220 300" aria-hidden="true"></svg>
+<svg class="bq br" data-b="3" viewBox="0 0 220 300" aria-hidden="true"></svg>
+<svg class="bq ml" data-b="4" viewBox="0 0 220 300" aria-hidden="true"></svg>
+<svg class="bq mr" data-b="5" viewBox="0 0 220 300" aria-hidden="true"></svg>
 <svg class="corner c-tl" viewBox="0 0 120 120" aria-hidden="true"><use href="#corner"/></svg>
 <svg class="corner c-tr" viewBox="0 0 120 120" aria-hidden="true"><use href="#corner"/></svg>
 <svg class="corner c-bl" viewBox="0 0 120 120" aria-hidden="true"><use href="#corner"/></svg>
@@ -525,8 +668,8 @@
     <div class="crop"><img src="photo.jpg" alt="Our photo booth strips"></div>
     <figcaption>and so it begins</figcaption>
   </figure>
-  <h2>You said yes.</h2>
-  <p>Thank you for choosing me. Here's to every page we'll write after this one.</p>
+  <h2>anh hứa, sẽ yêu em thật nhiều</h2>
+  <p>mong em cũng vậy với anh nhé?</p>
 </div>
 
 <script>
@@ -537,6 +680,71 @@
     showDate: true
   };
   /* =============================================================== */
+
+  /* ===================== BOUQUETS =====================
+     Six different bouquets of peonies and lilies.
+     Each flower: [type, colour, x, y, size, rotation]
+     types: peony, peonyBud, lilyWhite, lilyPink, lilyBud        */
+  const BLUSH='#f4b9c5', PALE='#f9dde1', IVORY='#f5ecdb', CORAL='#ee97a6', ROSE='#dc7d95', PEACH='#f6c6ab', BUDW='#f6f1e6', BUDP='#f4b3c4';
+  const BOUQUETS = [
+    { wrap:'#efe6d6', back:'#d9cbb0', ribbon:'#1e3870', flowers:[      // blush peonies + white lilies
+      ['lilyBud',BUDW,70,36,30,-25], ['lilyWhite',0,112,40,48,8],
+      ['peony',PALE,62,80,48,10], ['peony',BLUSH,158,78,48,-15],
+      ['lilyWhite',0,74,120,40,30], ['peony',IVORY,148,118,46,0], ['peony',ROSE,108,94,60,0] ]},
+    { wrap:'#d9c4a3', back:'#c3ab86', ribbon:'#7f97c4', flowers:[      // white lilies, kraft paper
+      ['lilyBud',BUDW,110,24,32,0], ['lilyWhite',0,68,52,50,-15], ['lilyWhite',0,152,50,50,20],
+      ['peony',BLUSH,66,112,44,0], ['peony',PALE,154,112,44,0],
+      ['lilyWhite',0,110,84,56,5], ['peonyBud',BLUSH,110,130,22,0] ]},
+    { wrap:'#f0dcdc', back:'#d9bcbc', ribbon:'#1e3870', flowers:[      // pink stargazer lilies
+      ['lilyBud',BUDP,110,26,30,0], ['lilyPink',0,62,60,48,-20], ['lilyPink',0,158,58,48,25],
+      ['peony',CORAL,110,66,52,0], ['peony',IVORY,78,108,50,0], ['peony',PALE,144,106,50,0],
+      ['peonyBud',CORAL,110,128,22,0] ]},
+    { wrap:'#d3dccb', back:'#b7c2ab', ribbon:'#f3ecdc', flowers:[      // ivory peonies, sage paper
+      ['lilyPink',0,110,38,46,0], ['peony',IVORY,70,66,52,0], ['peony',IVORY,150,66,52,0],
+      ['lilyWhite',0,62,112,42,-10], ['lilyWhite',0,158,112,42,15], ['peony',PEACH,110,98,58,0] ]},
+    { wrap:'#f4f1ea', back:'#dcd6c8', ribbon:'#dc7d95', flowers:[      // deep rose peonies
+      ['lilyBud',BUDW,58,44,28,-30], ['lilyBud',BUDW,162,42,28,30], ['lilyWhite',0,112,40,48,10],
+      ['peony',BLUSH,142,82,50,0], ['peony',ROSE,82,76,54,0],
+      ['lilyWhite',0,70,118,38,-25], ['peonyBud',ROSE,138,124,24,0] ]},
+    { wrap:'#e6d2b5', back:'#cdb791', ribbon:'#1e3870', flowers:[      // peach & pink mix
+      ['lilyWhite',0,64,42,40,-20], ['lilyBud',BUDP,158,36,28,25], ['lilyPink',0,110,56,52,10],
+      ['peony',PEACH,68,86,50,0], ['peony',PALE,152,86,50,0], ['peony',IVORY,110,110,52,0] ]}
+  ];
+  const LEAVES = [[72,128,-155,50],[148,128,-25,50],[60,98,-172,42],[160,98,-8,42],[94,140,-118,36],[126,140,-62,36]];
+  function drawBouquet(b, seed){
+    let s = `<path d="M28,78 L110,262 L192,78 Q160,104 110,92 Q60,104 28,78Z" fill="${b.back}"/>`;
+    s += '<g stroke="#6d8a5c" stroke-width="2.6" fill="none" stroke-linecap="round">';
+    b.flowers.forEach(f => { s += `<path d="M${f[2]},${f[3]} Q${(f[2]+110)/2},${(f[3]+250)/2-12} 110,250"/>`; });
+    s += '</g>';
+    LEAVES.forEach(([x,y,r,l], i) => {
+      const rr = r + ((seed*7 + i*13) % 11) - 5;
+      s += `<path transform="translate(${x} ${y}) rotate(${rr})" d="M0,0 C8,-7 ${l*.7},-7 ${l},0 C${l*.7},7 8,7 0,0Z" fill="${i%2?'#86a277':'#7a966b'}"/>`;
+    });
+    // baby's breath
+    let r = seed*9301 + 49297;
+    const rnd = () => (r = (r*9301 + 49297) % 233280) / 233280;
+    s += '<g fill="#fff" opacity=".9">';
+    for (let i = 0; i < 16; i++){
+      const a = Math.PI*(1.05 + rnd()*0.9), d = 52 + rnd()*30;
+      s += `<circle cx="${(110 + Math.cos(a)*d).toFixed(1)}" cy="${(96 + Math.sin(a)*d*0.85).toFixed(1)}" r="${(1.8+rnd()*1.6).toFixed(1)}"/>`;
+    }
+    s += '</g>';
+    b.flowers.forEach(([type, color, x, y, size, rot]) => {
+      s += `<use href="#${type}" x="${x-size/2}" y="${y-size/2}" width="${size}" height="${size}"`
+         + (color ? ` style="color:${color}"` : '') + (rot ? ` transform="rotate(${rot} ${x} ${y})"` : '') + '/>';
+    });
+    s += `<path d="M44,128 Q110,158 176,128 L120,268 L100,268Z" fill="${b.wrap}" stroke="rgba(0,0,0,.12)" stroke-width="1"/>`;
+    s += `<path d="M44,128 Q80,146 110,150 L104,268 L100,268Z" fill="#fff" opacity=".18"/>`;
+    s += `<g fill="${b.ribbon}" stroke="rgba(0,0,0,.18)" stroke-width="1">
+      <path d="M110,212 C90,196 78,206 84,216 C90,226 104,218 110,212Z"/>
+      <path d="M110,212 C130,196 142,206 136,216 C130,226 116,218 110,212Z"/>
+      <path d="M106,214 L96,246 L102,244 L108,250 Z"/><path d="M114,214 L124,246 L118,244 L112,250 Z"/>
+      <circle cx="110" cy="213" r="5"/></g>`;
+    return s;
+  }
+  document.querySelectorAll('.bq[data-b]').forEach(el => {
+    const i = +el.dataset.b; el.innerHTML = drawBouquet(BOUQUETS[i], i + 1);
+  });
 
   document.querySelectorAll('.her-name').forEach(el => el.textContent = CONFIG.herName);
   document.querySelectorAll('.your-name').forEach(el => el.textContent = CONFIG.yourName);
