@@ -278,7 +278,12 @@
     opacity:0; pointer-events:none; transition:opacity 1s ease;
     text-align:center; padding:24px; overflow-y:auto;
   }
-  #yay.show{opacity:1; pointer-events:auto}
+  #yay.show{opacity:1; pointer-events:auto; cursor:pointer}
+  #yay .back-hint{
+    margin-top:10px; font-size:13px; letter-spacing:.14em; text-transform:lowercase;
+    color:#8f9cbd; opacity:0; transition:opacity 1s ease 2.5s;
+  }
+  #yay.show .back-hint{opacity:.85}
   #yay .polaroid{float:none; width:min(260px,64vw); margin:0; transform:rotate(-2deg) scale(.9); transition:transform 1.2s cubic-bezier(.2,.8,.25,1)}
   #yay.show .polaroid{transform:rotate(-2deg) scale(1)}
   #yay h2{
@@ -670,6 +675,7 @@
   </figure>
   <h2>anh hứa, sẽ yêu em thật nhiều</h2>
   <p>mong em cũng vậy với anh nhé?</p>
+  <div class="back-hint">chạm vào bất kỳ đâu để xem lại lá thư</div>
 </div>
 
 <script>
@@ -850,8 +856,16 @@
   noBtn.addEventListener('click', dodge);
 
   /* ---------- Yes ---------- */
+  const yay = document.getElementById('yay');
+  let yayOpenedAt = 0;
+  // Tap anywhere on the final message to go back to the letter
+  yay.addEventListener('click', () => {
+    if (Date.now() - yayOpenedAt < 800) return;   // ignore the tap that opened it
+    yay.classList.remove('show');
+  });
   yesBtn.addEventListener('click', () => {
-    document.getElementById('yay').classList.add('show');
+    yayOpenedAt = Date.now();
+    yay.classList.add('show');
     noBtn.style.display = 'none';
     if (song.paused) playSong();
     if (!calm) for (let i = 0; i < 40; i++) setTimeout(spawnPetal, i*80);
