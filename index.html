@@ -240,6 +240,44 @@
   @media (max-width:560px){
     .polaroid{float:none; width:72%; margin:8px auto 26px; display:block; transform:rotate(-2deg)}
   }
+  /* the letter's photo plays a little film when tapped */
+  .polaroid.has-film{cursor:pointer}
+  .polaroid.has-film .crop{position:relative}
+  .play-badge{
+    position:absolute; left:50%; top:50%; width:54px; height:54px; margin:-27px 0 0 -27px;
+    border-radius:50%; display:grid; place-items:center;
+    background:rgba(13,26,54,.55); border:1px solid rgba(243,236,220,.75);
+    backdrop-filter:blur(2px); box-shadow:0 4px 14px rgba(0,0,0,.3);
+    transition:transform .3s ease, background .3s ease;
+    animation:badgePulse 2.6s ease-in-out infinite;
+  }
+  .play-badge svg{width:20px; height:20px; margin-left:3px; fill:#f3ecdc}
+  .polaroid.has-film:hover .play-badge{transform:scale(1.08); background:rgba(13,26,54,.75)}
+  @keyframes badgePulse{0%,100%{box-shadow:0 0 0 0 rgba(243,236,220,.45)} 50%{box-shadow:0 0 0 10px rgba(243,236,220,0)}}
+
+  #film{
+    position:fixed; inset:0; z-index:80;
+    display:flex; flex-direction:column; align-items:center; justify-content:center; gap:14px;
+    background:rgba(7,14,31,.92); backdrop-filter:blur(6px);
+    opacity:0; pointer-events:none; transition:opacity .6s ease; padding:20px;
+  }
+  #film.show{opacity:1; pointer-events:auto}
+  #film .frame{
+    background:#fff; padding:10px 10px 0; box-shadow:0 24px 60px rgba(0,0,0,.55);
+    transform:scale(.94) rotate(-1deg); transition:transform .7s cubic-bezier(.2,.8,.25,1);
+  }
+  #film.show .frame{transform:scale(1) rotate(-1deg)}
+  #film video{display:block; height:min(74vh,150vw); max-width:86vw; aspect-ratio:9/16; object-fit:cover; background:#000}
+  #film .frame figcaption{
+    font-family:'Cormorant Garamond',serif; font-style:italic; font-size:19px;
+    color:var(--ink-soft); text-align:center; padding:8px 0 10px;
+  }
+  #film .close{
+    position:absolute; top:16px; right:16px; width:44px; height:44px; border-radius:50%;
+    background:transparent; border:1px solid rgba(200,169,106,.5); color:var(--gold-soft);
+    font-size:22px; line-height:1; cursor:pointer;
+  }
+  #film .film-hint{font-size:13px; letter-spacing:.14em; color:#8f9cbd}
 
   .question{
     font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:500;
@@ -640,8 +678,10 @@
     <h2 class="greeting reveal">To my dearest <span class="her-name">you</span>,</h2>
 
     <div class="letter-body">
-      <figure class="polaroid reveal">
-        <div class="crop"><img src="photo.jpg" alt="Our photo booth strips"></div>
+      <figure class="polaroid reveal has-film" id="filmTrigger" role="button" tabindex="0" aria-label="Play our video">
+        <div class="crop"><img src="photo.jpg" alt="Our photo booth strips">
+          <span class="play-badge" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4.5v15l12.5-7.5z"/></svg></span>
+        </div>
         <figcaption>us, so far</figcaption>
       </figure>
       <!-- ✏️ Write your own words here. Add or remove <p> paragraphs as you like. -->
@@ -666,6 +706,16 @@
     </div>
   </article>
 </section>
+
+<!-- ===================== OUR VIDEO ===================== -->
+<div id="film" aria-hidden="true">
+  <button class="close" id="filmClose" aria-label="Close video">&times;</button>
+  <figure class="frame">
+    <video id="filmVideo" src="video.mp4" poster="video-poster.jpg" playsinline controls preload="metadata"></video>
+    <figcaption>a little moment of us</figcaption>
+  </figure>
+  <div class="film-hint">chạm ra ngoài để quay lại</div>
+</div>
 
 <!-- ===================== AFTER "YES" ===================== -->
 <div id="yay" aria-live="polite">
@@ -785,11 +835,36 @@
   // 2) otherwise start on the very first tap / click / scroll / key anywhere,
   // 3) resume whenever she comes back to the tab or the phone interrupts it.
   playSong();
-  const kick = () => { if (!userPaused) playSong(); };
+  let filmOpen = false;     // music steps aside while our video plays
+  const kick = () => { if (!userPaused && !filmOpen) playSong(); };
   ['pointerdown','touchstart','click','keydown','wheel','scroll'].forEach(ev =>
     window.addEventListener(ev, kick, { passive:true, capture:true }));
   document.addEventListener('visibilitychange', () => { if (!document.hidden) kick(); });
   song.addEventListener('pause', () => { if (!userPaused && !document.hidden) setTimeout(kick, 400); });
+
+  /* ---------- Our video (tap the photo) ---------- */
+  const film = document.getElementById('film');
+  const filmVideo = document.getElementById('filmVideo');
+  const filmTrigger = document.getElementById('filmTrigger');
+  function openFilm(){
+    filmOpen = true;
+    song.pause(); musicBtn.classList.add('muted');
+    film.classList.add('show'); film.setAttribute('aria-hidden','false');
+    filmVideo.currentTime = 0;
+    filmVideo.play().catch(() => {});
+  }
+  function closeFilm(){
+    filmVideo.pause();
+    film.classList.remove('show'); film.setAttribute('aria-hidden','true');
+    filmOpen = false;
+    kick();
+  }
+  filmTrigger.addEventListener('click', openFilm);
+  filmTrigger.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openFilm(); } });
+  document.getElementById('filmClose').addEventListener('click', e => { e.stopPropagation(); closeFilm(); });
+  film.addEventListener('click', e => { if (e.target === film) closeFilm(); });
+  filmVideo.addEventListener('ended', () => setTimeout(closeFilm, 600));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && filmOpen) closeFilm(); });
 
   /* ---------- Petals ---------- */
   const petalColors = ['#f1cdcc','#f6e7e1','#ffffff','#d993a6','#c9d6f0'];
